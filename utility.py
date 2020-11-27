@@ -11,12 +11,15 @@ def price_return(price_series, window = 1, ret_type = "S"):
     "window" defines lookback window - eg, for daily prices, window = 1 means daily return, 5 means weekly return etc.
     Default "window" is 1
     """
+    
+    print("Hello I am deb")
     if (ret_type == "S"):
         return (price_series.pct_change(window)).dropna()
     elif (ret_type == "L"):
         return (log(price_series) - log(price_series.shift(window))).dropna()
     else:
         raise TypeError("Espected r to be Series or DF")
+
 
 
 def compound(r):
